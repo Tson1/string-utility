@@ -16,12 +16,39 @@ test('hasChinese test', async () => {
 
 test('hasNotChinese test', async () => {
     //还有非中文字符时返回真。
-    let r = strUtli.hasNotChinese('你好world.');
+    let r = strUtli.mixNotChinese('你好world.');
     expect(r).toBe(true);
 
-    r = strUtli.hasNotChinese('world.');
+    r = strUtli.mixNotChinese('world.');
     expect(r).toBe(true);
 
-    r = strUtli.hasNotChinese('你好');
+    r = strUtli.mixNotChinese('你好');
     expect(r).toBe(false);
+});
+
+test('splitByChinese test', async () => {
+    //还有非中文字符时返回真。
+    let r = strUtli.splitByChinese('你好world.'); // [ '你好', 'world.' ]
+    console.log(r);
+    expect(r.length).toBe(2);
+
+    r = strUtli.splitByChinese('我是小猪PEIQI，你好！'); // [ '我是小猪', 'PEIQI，', '你好', '！' ]
+    console.log(r);
+    expect(r.length).toBe(4);
+
+    r = strUtli.splitByChinese('白日依山尽'); // [ '白日依山尽' ]
+    console.log(r);
+    expect(r.length).toBe(1);
+
+    r = strUtli.splitByChinese(undefined); // undifined
+    console.log(r);
+    expect(r).toBe(undefined);
+
+    r = strUtli.splitByChinese(null); // null
+    console.log(r);
+    expect(r).toBe(null);
+
+    r = strUtli.splitByChinese(''); // ''
+    console.log(r);
+    expect(r).toBe('');
 });
