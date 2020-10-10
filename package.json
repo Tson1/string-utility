@@ -1,6 +1,6 @@
 {
     "name": "@tson1/string-utils",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "javascript string utilits",
     "main": "./dist/index.js",
     "scripts": {
