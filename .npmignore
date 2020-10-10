@@ -22,3 +22,5 @@ tsconfig.json
 __tests__
 coverage
 jest.config.js
+.travis.yml
+
