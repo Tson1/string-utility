@@ -6,7 +6,7 @@ test('empty test', async () => {
 });
 
 test('hasChinese test', async () => {
-    //还有中文字符时返回真。
+    //含有中文字符时返回真。
     let r = strUtli.hasChinese('你好world.');
     expect(r).toBe(true);
 
@@ -15,7 +15,7 @@ test('hasChinese test', async () => {
 });
 
 test('hasNotChinese test', async () => {
-    //还有非中文字符时返回真。
+    //含有非中文字符时返回真。
     let r = strUtli.mixNotChinese('你好world.');
     expect(r).toBe(true);
 
@@ -27,7 +27,7 @@ test('hasNotChinese test', async () => {
 });
 
 test('splitByChinese test', async () => {
-    //还有非中文字符时返回真。
+    //含有非中文字符时返回真。
     let r = strUtli.splitByChinese('你好world.'); // [ '你好', 'world.' ]
     console.log(r);
     expect(r.length).toBe(2);
