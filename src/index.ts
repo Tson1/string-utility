@@ -1,10 +1,9 @@
 import * as R from 'ramda';
-const reg_hasChinese = new RegExp('.*[\u4E00-\u9FA5]+.*');
-const reg_hunhe = new RegExp('[^\u4e00-\u9fa5]');
 /**
  * 含有中文。True
  * @param str
  */
+const reg_hasChinese = new RegExp('.*[\u4E00-\u9FA5]+.*');
 export function hasChinese(str: string) {
     ////"含有中文"
     return reg_hasChinese.test(str);
@@ -18,6 +17,7 @@ export function hasNotChinese(str: string) {
  * 含有非中文字符时。True
  * @param str
  */
+const reg_hunhe = new RegExp('[^\u4e00-\u9fa5]');
 export function mixNotChinese(str: string) {
     ////非全汉字时 True
     return reg_hunhe.test(str);
@@ -50,4 +50,9 @@ export function splitByChinese(str: any): string[] {
     result.push(R.join('', tmp[0]));
     result = R.concat(result, next);
     return result;
+}
+
+const reg_url_Global = /^(\/\/|http).*/; // 全局参照 [//] or [http] or [https]
+export function isUrlGlobal(url: string) {
+    return reg_url_Global.test(url);
 }

@@ -52,3 +52,21 @@ test('splitByChinese test', async () => {
     console.log(r);
     expect(r).toBe('');
 });
+
+test('isUrlGlobal test', async () => {
+    //Html 中的全局URL
+    let r = strUtli.isUrlGlobal('http://xfutian.com');
+    expect(r).toBe(true);
+    r = strUtli.isUrlGlobal('https://xfutian.com');
+    expect(r).toBe(true);
+    r = strUtli.isUrlGlobal('//xfutian.com/mengxue/');
+    expect(r).toBe(true);
+
+    r = strUtli.isUrlGlobal('/xfutian.com/mengxue/');
+    expect(r).toBe(false);
+
+    r = strUtli.isUrlGlobal('./xfutian.com/mengxue/');
+    expect(r).toBe(false);
+    r = strUtli.isUrlGlobal('../xfutian.com/mengxue/');
+    expect(r).toBe(false);
+});
